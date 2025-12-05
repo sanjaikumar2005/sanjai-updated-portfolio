@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanjai Kumar B — Portfolio</title>
+  <meta name="description" content="Portfolio of Sanjai Kumar B — Front End & App Developer" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    /* ---------- Variables & Base ---------- */
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent1:#06b6d4; /* cyan */
+      --accent2:#7c3aed; /* violet */
+      --glass:rgba(255,255,255,0.04);
+      --radius:14px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg) 0%, #071022 100%);color:#e6eef6}
+    a{color:var(--accent1);text-decoration:none}
+    .container{max-width:var(--maxw);margin:36px auto;padding:28px}
+
+    /* ---------- Header ---------- */
+    header{display:flex;align-items:center;gap:20px}
+    .logo{width:86px;height:86px;border-radius:16px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;box-shadow:0 8px 30px rgba(124,58,237,0.16)}
+    .me{line-height:1}
+    h1{margin:0;font-size:26px;letter-spacing:0.2px}
+    .subtitle{color:var(--muted);margin-top:6px;font-size:14px}
+    .cta{margin-left:auto;display:flex;gap:10px}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:0;padding:10px 14px;border-radius:12px;color:#06121a;font-weight:700;cursor:pointer;box-shadow:0 8px 30px rgba(6,182,212,0.12);transition:transform .22s ease}
+    .btn:active{transform:translateY(1px)}
+
+    /* ---------- Layout ---------- */
+    main{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03)}
+
+    /* ---------- About ---------- */
+    .about p{color:var(--muted);line-height:1.6;margin:8px 0 0}
+
+    /* ---------- Skills ---------- */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px 10px;border-radius:10px;font-weight:700;color:#cfeff6;font-size:13px}
+
+    /* ---------- Projects ---------- */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .proj{position:relative;padding:14px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.02));transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s;cursor:pointer}
+    .proj:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 30px 60px rgba(2,6,23,0.6)}
+    .proj h4{margin:0 0 6px}
+    .proj .meta{color:var(--muted);font-size:13px}
+    .proj .links{margin-top:10px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:700;color:var(--muted);font-size:13px}
+
+    /* ---------- Animated skill bars ---------- */
+    .skill-bar{margin-top:12px}
+    .bar{height:10px;background:rgba(255,255,255,0.05);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:999px;transition:width 1.2s cubic-bezier(.2,.9,.2,1)}
+    .bar-label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:8px}
+
+    /* ---------- Contact & Aside ---------- */
+    .contact a{display:block;color:var(--muted);margin-bottom:8px}
+    .download{display:block;margin-top:10px}
+
+    /* ---------- Footer ---------- */
+    footer{text-align:center;color:var(--muted);margin-top:26px}
+
+    /* ---------- Reveal animations ---------- */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* ---------- Motion accent shapes ---------- */
+    .accent-shape{position:fixed;right:-120px;top:60px;width:360px;height:360px;background:linear-gradient(135deg,var(--accent1),var(--accent2));filter:blur(40px);opacity:0.14;transform:rotate(18deg)}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){main{grid-template-columns:1fr} .projects-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="accent-shape" aria-hidden></div>
+
+  <div class="container">
+    <header>
+      <div class="logo">SK</div>
+      <div class="me">
+        <h1>Sanjai Kumar B</h1>
+        <div class="subtitle">Aspiring Front‑End & App Developer — B.E. Biomedical Engineering (KAHE)</div>
+        <div style="margin-top:8px;color:var(--muted);font-size:13px">Coimbatore — <a href="mailto:sanjaitheni0301@gmail.com">sanjaitheni0301@gmail.com</a> — 6374648875</div>
+      </div>
+      <div class="cta">
+        <button class="btn" onclick="scrollToSection('projects')">View Projects</button>
+        <a class="btn" href="#" onclick="downloadResume()">Download Resume</a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="card reveal" id="intro">
+          <h3 style="margin:0">About Me</h3>
+          <p>I build polished user interfaces and practical apps. Currently final‑year B.E. (Biomedical Engineering) student at Karpagam Academy of Higher Education with hands‑on experience in deep learning for dental diagnosis, IoT prototypes and full‑stack app prototypes. I focus on clean design, accessibility and performance.</p>
+
+          <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+            <div style="min-width:160px">
+              <div style="font-weight:800">Education</div>
+              <div style="color:var(--muted);margin-top:6px">B.E. Biomedical Engineering — KAHE — CGPA: 9.1 (Expected 2026)</div>
+            </div>
+
+            <div style="min-width:160px">
+              <div style="font-weight:800">Interests</div>
+              <div style="color:var(--muted);margin-top:6px">App Development • Front‑End • Deep Learning • IoT</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:16px" id="skills">
+          <h3 style="margin:0">Skills</h3>
+          <div class="skills" style="margin-top:12px">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Python</span>
+            <span class="skill">Deep Learning</span>
+            <span class="skill">IoT</span>
+            <span class="skill">Git</span>
+          </div>
+
+          <div class="skill-bar" style="margin-top:14px">
+            <div class="bar"><i data-width="92%"></i></div>
+            <div class="bar-label"><span>Front‑End</span><span>92%</span></div>
+
+            <div style="height:10px"></div>
+            <div class="bar"><i data-width="86%"></i></div>
+            <div class="bar-label"><span>Deep Learning</span><span>86%</span></div>
+
+            <div style="height:10px"></div>
+            <div class="bar"><i data-width="78%"></i></div>
+            <div class="bar-label"><span>IoT & Embedded</span><span>78%</span></div>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:16px" id="projects">
+          <h3 style="margin:0 0 12px 0">Selected Projects</h3>
+          <div class="projects-grid">
+            <article class="proj" onclick="openLink('#')">
+              <h4>Dental Caries Detection (Deep Learning)</h4>
+              <div class="meta">EfficientNet‑based classifier • 15k intraoral images • Preprocessing & augmentation</div>
+              <div class="links"><span class="pill">Python</span> <span class="pill">TensorFlow</span></div>
+            </article>
+
+            <article class="proj" onclick="openLink('#')">
+              <h4>IoT Therapy for Bed‑ridden Patients</h4>
+              <div class="meta">Embedded prototype • Sensor network • Caregiver alerts</div>
+              <div class="links"><span class="pill">C</span> <span class="pill">Arduino</span></div>
+            </article>
+
+            <article class="proj" onclick="openLink('#')">
+              <h4>Doctor Appointment Platform</h4>
+              <div class="meta">Full‑stack prototype — booking flows & consent management</div>
+              <div class="links"><span class="pill">React</span> <span class="pill">Node.js</span></div>
+            </article>
+
+            <article class="proj" onclick="openLink('#')">
+              <h4>Dental Dataset Recreator</h4>
+              <div class="meta">Data curation & augmentation for classification tasks (800 → 15k)</div>
+              <div class="links"><span class="pill">Python</span> <span class="pill">OpenCV</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:16px">
+          <h3 style="margin:0">Internships & Experience</h3>
+          <ul style="color:var(--muted);margin-top:8px">
+            <li><strong>Cumbum United Scans</strong> — Equipment trainee (Jun–Jul 2023)</li>
+            <li><strong>Rohan Sekar Hospital</strong> — Biomedical instruments (short internship)</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card reveal contact" style="position:sticky;top:28px">
+          <h3 style="margin:0">Contact</h3>
+          <div style="margin-top:10px;color:var(--muted)">
+            <a href="mailto:sanjaitheni0301@gmail.com">✉️ sanjaitheni0301@gmail.com</a>
+            <a href="tel:6374648875">📞 6374648875</a>
+            <a href="https://www.linkedin.com/in/sanjai-kumar-b-247093255" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/sanjaikumar2005" target="_blank">🐙 GitHub</a>
+          </div>
+
+          <a class="btn download" href="#" onclick="downloadResume()">Download Resume</a>
+        </div>
+
+        <div class="card reveal" style="margin-top:16px">
+          <h3 style="margin:0">Certificates</h3>
+          <div style="color:var(--muted);margin-top:8px">
+            • Artificial Intelligence — NPTEL (Elite)
+            <br>• Biomechanics — NPTEL (Elite)
+            <br>• Responsive Web Design — freeCodeCamp
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:16px">
+          <h3 style="margin:0">Area of Interest</h3>
+          <div style="color:var(--muted);margin-top:8px">App Development • Front‑End • Deep Learning • IoT</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="card" style="display:inline-block;padding:12px 20px;border-radius:12px;margin-top:18px;color:var(--muted)">Made with ☕ • Sanjai Kumar B</div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth reveal on scroll
+    function revealOnScroll(){
+      const items = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.12});
+      items.forEach(i=>observer.observe(i));
+    }
+    revealOnScroll();
+
+    // animate skill bars when visible
+    const skillObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const bars = e.target.querySelectorAll('.bar > i');
+          bars.forEach(b=>{ b.style.width = b.getAttribute('data-width'); });
+          skillObserver.unobserve(e.target);
+        }
+      });
+    },{threshold:0.25});
+    const skills = document.getElementById('skills');
+    if(skills) skillObserver.observe(skills);
+
+    // download resume (uses uploaded file name)
+    function downloadResume(){
+      const resumeUrl = 'SANJAI-KUMAR-B-FlowCV-Resume-20251127.pdf';
+      const a = document.createElement('a'); a.href = resumeUrl; a.download = 'SANJAI-KUMAR-B-Resume.pdf'; document.body.appendChild(a); a.click(); a.remove();
+    }
+
+    // scroll helper
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // project card open link (placeholder — replace with repo/live links)
+    function openLink(url){ if(url && url!=='#') window.open(url,'_blank'); else alert('I can attach the project repo or demo link here — tell me if you want me to add your GitHub links.'); }
+  </script>
+</body>
+</html>
